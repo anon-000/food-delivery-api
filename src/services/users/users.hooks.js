@@ -1,35 +1,37 @@
-import '@feathersjs/authentication';
-import '@feathersjs/authentication-local';
-import * as feathersAuthentication from '@feathersjs/authentication';
-import * as local from '@feathersjs/authentication-local';
+import "@feathersjs/authentication";
+import "@feathersjs/authentication-local";
+import * as feathersAuthentication from "@feathersjs/authentication";
+import * as local from "@feathersjs/authentication-local";
+import GenerateAccessToken from "./hooks/GenerateAccessToken";
+import FRequired from "../../hooks/FRequired";
+import setId from "../../hooks/setId";
 
-
-const {authenticate} = feathersAuthentication.hooks;
-const {hashPassword, protect} = local.hooks;
+const { authenticate } = feathersAuthentication.hooks;
+const { hashPassword, protect } = local.hooks;
 
 export default {
   before: {
     all: [],
-    find: [ authenticate('jwt') ],
-    get: [ authenticate('jwt') ],
-    create: [ hashPassword('password') ],
-    update: [ hashPassword('password'),  authenticate('jwt') ],
-    patch: [ hashPassword('password'),  authenticate('jwt') ],
-    remove: [ authenticate('jwt') ]
+    find: [authenticate("jwt")],
+    get: [authenticate("jwt")],
+    create: [FRequired("name", "Name is required"), hashPassword("password")],
+    update: [hashPassword("password"), authenticate("jwt")],
+    patch: [hashPassword("password"), authenticate("jwt"), setId()],
+    remove: [authenticate("jwt")],
   },
 
   after: {
-    all: [ 
+    all: [
       // Make sure the password field is never sent to the client
       // Always must be the last hook
-      protect('password')
+      protect("password"),
     ],
     find: [],
     get: [],
-    create: [],
+    create: [GenerateAccessToken()],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   error: {
@@ -39,6 +41,6 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };
