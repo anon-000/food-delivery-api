@@ -1,0 +1,70 @@
+{
+  "name": "food-delivery-api",
+  "description": "Backend of food delivery application",
+  "version": "0.0.0",
+  "homepage": "",
+  "private": true,
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "Auro",
+    "email": "auro@smarttersstudio.com"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/",
+    "config": "config/"
+  },
+  "engines": {
+    "node": "^14.0.0",
+    "yarn": ">= 0.18.0"
+  },
+  "scripts": {
+    "cjstoes6": "cjs-to-es6 --verbose src",
+    "test": "yarn run lint && yarn run jest",
+    "lint": "eslint src/. test/. --config .eslintrc.json --fix",
+    "dev": "nodemon src/ --exec babel-node",
+    "start": "babel-node src/",
+    "jest": "jest  --forceExit"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": []
+  },
+  "dependencies": {
+    "@feathersjs/authentication": "^4.5.11",
+    "@feathersjs/authentication-local": "^4.5.11",
+    "@feathersjs/authentication-oauth": "^4.5.11",
+    "@feathersjs/configuration": "^4.5.11",
+    "@feathersjs/errors": "^4.5.11",
+    "@feathersjs/express": "^4.5.11",
+    "@feathersjs/feathers": "^4.5.11",
+    "@feathersjs/socketio": "^4.5.11",
+    "@feathersjs/transport-commons": "^4.5.11",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "feathers-mongoose": "^8.3.1",
+    "helmet": "^4.3.1",
+    "mongodb-core": "^3.2.7",
+    "mongoose": "^5.11.9",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "axios": "^0.21.1",
+    "cjs-to-es6": "^1.1.1",
+    "eslint": "^7.17.0",
+    "jest": "^27.0.4",
+    "nodemon": "^2.0.6"
+  }
+}
