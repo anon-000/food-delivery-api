@@ -58,4 +58,4 @@ export default function(app) {
   //     app.channel(`emails/${data.recipientEmail}`)
   //   ];
   // });
-};
+}

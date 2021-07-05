@@ -1,12 +1,12 @@
 // Initializes the `orders` service on path `/orders`
-const { Orders } = require('./orders.class');
-const createModel = require('../../models/orders.model');
-const hooks = require('./orders.hooks');
+import { Orders } from './orders.class';
 
-module.exports = function (app) {
+import createModel from '../../models/orders.model';
+import hooks from './orders.hooks';
+
+export default function (app) {
   const options = {
     Model: createModel(app),
-    paginate: app.get('paginate')
   };
 
   // Initialize our service with any options it requires
@@ -16,4 +16,4 @@ module.exports = function (app) {
   const service = app.service('orders');
 
   service.hooks(hooks);
-};
+}

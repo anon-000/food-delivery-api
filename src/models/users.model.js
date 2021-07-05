@@ -3,8 +3,8 @@
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 export default function (app) {
-  const modelName = "users";
-  const mongooseClient = app.get("mongooseClient");
+  const modelName = 'users';
+  const mongooseClient = app.get('mongooseClient');
   const schema = new mongooseClient.Schema(
     {
       name: {
@@ -20,6 +20,10 @@ export default function (app) {
       password: {
         type: String,
         required: true,
+      },
+      role: {
+        type: Number,
+        default: 1,
       },
       phone: {
         type: String,

@@ -5,4 +5,4 @@ import orders from './orders/orders.service.js';
 export default function (app) {
   app.configure(users);
   app.configure(orders);
-};
+}

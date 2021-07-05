@@ -7,7 +7,6 @@ import hooks from './users.hooks';
 export default function (app) {
   const options = {
     Model: createModel(app),
-    paginate: app.get('paginate')
   };
 
   // Initialize our service with any options it requires
@@ -17,4 +16,4 @@ export default function (app) {
   const service = app.service('users');
 
   service.hooks(hooks);
-};
+}

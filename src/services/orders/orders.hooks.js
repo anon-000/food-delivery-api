@@ -1,11 +1,16 @@
-const { authenticate } = require('@feathersjs/authentication').hooks;
+import * as feathersAuthentication from '@feathersjs/authentication';
+import setCreatedBy from '../../hooks/setCreatedBy';
 
-module.exports = {
+const { authenticate } = feathersAuthentication.hooks;
+
+export default {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
-    create: [],
+    create: [
+      setCreatedBy('user'),
+    ],
     update: [],
     patch: [],
     remove: []
