@@ -17,8 +17,9 @@ export default function (app) {
         status: {
             type: Number,
             enum: [
-                1, // ordered
-                2, // approved
+                1, // initiated
+                2, // completed
+                3, // approved
                 0, // cancelled
             ],
             default: 1,
