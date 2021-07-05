@@ -44,14 +44,11 @@ export default function (app) {
         paymentMethod: {
             type: String,
             required: true,
-            enum: ['cod', 'online'],
+            enum: ['COD', 'Online'],
         },
         paymentStatus: {
-            type: Number,
-            enum: [
-                1, // not paid
-                2, // paid
-            ],
+            type: String,
+            enum: ['Paid', 'Unpaid'],
             required: true,
         },
         userDetails: {
