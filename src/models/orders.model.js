@@ -42,12 +42,9 @@ export default function (app) {
             required: true,
         },
         paymentMethod: {
-            type: Number,
+            type: String,
             required: true,
-            enum: [
-                1, // COD
-                2, // Online
-            ],
+            enum: ['cod', 'online'],
         },
         paymentStatus: {
             type: Number,
