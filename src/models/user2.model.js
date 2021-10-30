@@ -25,9 +25,6 @@ export default function (app) {
                 type: Number,
                 default: 1,
             },
-            phone: {
-                type: String,
-            },
             gender: {
                 /**
          * 1. male
